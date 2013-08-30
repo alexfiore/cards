@@ -1,6 +1,12 @@
 <h1>Here is your card</h1>
-<p><%=@round.deck.cards.first.prompt%></p>
+
+<p><%=@card.prompt%></p>
+
 <p>What is your answer</p>
-<form>
-  <input type="text">
+<form action="/play" method="POST">
+  <input type="hidden" name="answer" value="<%=@card.answer%>">
+  <input type="hidden" name="card_id" value="<%=@card.id%>">
+  <input type="text" name="user_input">
+  <input type="submit">
 </form>
+
