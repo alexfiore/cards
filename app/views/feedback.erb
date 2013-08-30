@@ -1,0 +1,11 @@
+<% if @check %>
+  <p>Good job</p>
+<% else %>
+  <p>Sorry, try next time.</p>
+<% end %>
+
+<form action="/next" method="POST">
+  <input type="hidden" name="card_id" value=<%=@card.id%>>
+  <input type="submit" value="Play next card">
+</form>
+
