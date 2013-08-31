@@ -14,7 +14,7 @@ post '/' do
     redirect '/'
   elsif User.authenticate(params[:email], params[:password])
     session[:id] = @user.id
-    erb :user_profile 
+    redirect "/user_profile/#{@user.id}"
   end
 end
 
@@ -22,7 +22,7 @@ post '/signup' do
   @user = User.create(params[:user])
   if @user.valid? 
     session[:id] = @user.id
-    erb :user_profile
+    redirect '/user_profile/:id'
   else
     @errors = @user.errors.full_messages
     erb :signup
@@ -35,6 +35,7 @@ get '/logout' do
 end
 
 get '/user_profile/:id' do
-  
+
+  erb :user_profile
 end
 
