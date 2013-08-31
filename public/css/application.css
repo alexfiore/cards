@@ -7,3 +7,33 @@
 th {
   text-align: left;
 }
+
+.nav-bar{
+  float: left;
+  width: 100%;
+  background: #ccc;
+}
+
+.nav-bar ul{
+  margin: 0;
+  padding: 0;
+}
+
+.nar-bar ul li{
+  float: left;
+  list-style: none;
+  font-size: 12px;
+  font-family: "Verdana", "Arial";
+
+}
+
+.nav-bar a{
+  display: block;
+  float: right;
+  padding: 8px 44px;
+  text-decoration: none;
+}
+
+.content-wrap{
+
+}

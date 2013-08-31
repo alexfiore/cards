@@ -1,0 +1,14 @@
+<div class="nav-bar">
+  
+  <%if current_user%>
+    <ul>  
+      <li><a href="/">HOME </a> </li>
+      <li><a href="/logout">LOG OUT </a> </li>
+    </ul>
+  <!--Current logout -->
+  <%else%>
+    <ul>  
+      <li><a href="/">LOG IN</a> </li>
+    </ul>
+  <%end%>
+</div>

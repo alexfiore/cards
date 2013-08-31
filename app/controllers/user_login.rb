@@ -1,18 +1,13 @@
 get '/' do 
-  erb :login
+  erb :index
 end
 
-get '/signup' do
-  erb :signup
-end
-
-post '/' do
-  
-  @user = User.find_by_email(params[:email])
+post '/' do 
+  @user = User.find_by_email(params[:user][:email])
   
   if @user.nil? 
     redirect '/'
-  elsif User.authenticate(params[:email], params[:password])
+  elsif User.authenticate(params[:user][:email], params[:user][:password])
     session[:id] = @user.id
     redirect "/user_profile/#{@user.id}"
   end
@@ -20,22 +15,22 @@ end
 
 post '/signup' do
   @user = User.create(params[:user])
-  if @user.valid? 
+  if @user.save 
     session[:id] = @user.id
-    redirect '/user_profile/:id'
+    redirect "/user_profile/#{@user.id}"
   else
     @errors = @user.errors.full_messages
-    erb :signup
+    erb :index
   end
 end
 
 get '/logout' do
-  session[:id] = nil
+  session.clear
   redirect '/'
 end
 
 get '/user_profile/:id' do
-
+  @decks = Deck.all
   erb :user_profile
 end
 

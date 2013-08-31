@@ -1,8 +1,11 @@
 class Guess < ActiveRecord::Base
-  # Remember to create a migration!
+
   belongs_to :round
   belongs_to :card
 
-  # write method for how to check if a guess is correct.
+  def check_if_correct(guess)
+    self.right_wrong = guess == self.card.answer 
+  end
+
 end
 

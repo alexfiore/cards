@@ -1,0 +1,11 @@
+<form action='/signup' method='POST'>
+  Please enter your email and password to create an account:<br>
+  <label>Name: 
+    <input type='text' name='user[name]' placeholder='name'>
+  </label><br>
+
+  <%= erb :_email_pw_form %>
+  <input type='submit' value='Sign Up'> 
+  
+</form>
+

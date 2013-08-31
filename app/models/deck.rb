@@ -1,6 +1,13 @@
 class Deck < ActiveRecord::Base
-  # Remember to create a migration!
   has_many :cards
 
   # write method for how to deal a random card from a deck
+  def deal_next_card
+    #pseudocode: 
+    # given a deck, card, and game
+    # the available cards are the cards that have 0 guesses
+
+    available_cards.sample
+  end
+
 end

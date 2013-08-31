@@ -18,6 +18,9 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <%= erb :_nav_bar %><!-- partials where _nav_bar is the name of the file -->
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

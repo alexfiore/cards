@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
   has_many :rounds
   has_many :decks, through: :rounds
+
+  validates :name, presence: true
+  
+  validates :email, presence: true, uniqueness: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  
+  validates :password, presence: true # this isn't working. because we're using bcrypt create. 
 
   include BCrypt
 
@@ -21,8 +27,7 @@ class User < ActiveRecord::Base
 
   def self.create(user)
     @user = User.new(name: user[:name],
-                     email: user[:email]
-                      )
+                     email: user[:email])
     @user.password = user[:password]
     @user.save
     @user

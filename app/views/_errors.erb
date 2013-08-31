@@ -1,0 +1,10 @@
+<% if @errors %>
+
+<p>We could not process your request for the following reasons:</p>
+
+<ul><% @errors.each do |error| %>
+    <li><%=error%></li>
+  <%end%>
+</ul>
+
+<% end %>

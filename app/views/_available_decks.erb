@@ -1,0 +1,7 @@
+<div class= "content-wrap">
+<h1>Below are your available decks...</h1>
+<% @decks.each do |deck|%>
+  <a href="/deck/<%=deck.id%>">Click here to start <%=deck.name%></a>
+<% end %>
+
+</div>
