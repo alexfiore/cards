@@ -8,32 +8,33 @@ end
 
 post '/' do
   
-  @this_user = User.find_by_email(params[:email])
+  @user = User.find_by_email(params[:email])
   
-  if @this_user.nil? 
+  if @user.nil? 
     redirect '/'
-  elsif
-    @this_user.password != params[:password]
-    redirect '/'
-  else
-    session[:id] = @this_user.id
-    erb :user_profile
+  elsif User.authenticate(params[:email], params[:password])
+    session[:id] = @user.id
+    erb :user_profile 
   end
-
 end
 
 post '/signup' do
-  @user = User.create(params)
+  @user = User.create(params[:user])
   if @user.valid? 
     session[:id] = @user.id
-    redirect '/user_profile/:id'
+    erb :user_profile
   else
     @errors = @user.errors.full_messages
     erb :signup
   end
 end
 
-post '/user_profile' do
+get '/logout' do
+  session[:id] = nil
+  redirect '/'
+end
+
+get '/user_profile/:id' do
   
 end
 

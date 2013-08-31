@@ -1,0 +1,8 @@
+<div class="container">
+	<% if session[:id].nil? %>
+		<h1>Please Log in<h1>
+	<% else %>
+	  <h1>Hello <%= @user.name %></h1>
+	  <a href='/logout'>Logout<a>
+	<%end %>
+</div>

@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def self.authenticate(params)
-    user = User.find_by_email(params[:email])
-    (user && user.password == params[:password]) ? user : nil
+  def self.authenticate(email, password)
+    user = User.find_by_email(email)
+    (user && user.password == password) ? user : nil
   end
 
   def self.create(user)
@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
                       )
     @user.password = user[:password]
     @user.save
+    @user
   end
 end
 
