@@ -1,35 +1,34 @@
-### routes for "a user can view all available decks" ###
-
-## WILL NEED TO CHANGE ONCE LOGIN IS IMPLEMENTED
-get '/' do
-
-  ### STUB ###
-  current_user = User.first 
-  ### STUB ###  
-
-  @decks = Deck.all
-  erb :available_decks
-end
-
 get '/deck/:deck_id' do
-  current_user = User.first 
-  current_deck = Deck.find(params[:deck_id])
+  selected_deck = Deck.find(params[:deck_id])
 
-  @round = current_user.rounds.create(completion_status: false, deck_id: current_deck.id)
-  @card = @round.deck.cards.where(id: 1).first
+  @round = current_user.rounds.create(completion_status: false, deck_id: selected_deck.id)
+  session[:round_id] = @round.id
+
+  @card = @round.deck.cards.first
 
   erb :play
 end
 
 post '/play' do
   # set a variable that checks if guess is correct or not...
-  @check = params[:user_input] == params[:answer]
+  user_guess = params[:user_input]
+  current_card = Card.find(params[:card_id])
+  current_round = Round.find(session[:round_id])
+
+  @guess = Guess.new(card: current_card, 
+                    round: current_round,
+                    user_guess: user_guess)  
+
+  @guess.check_if_correct(user_guess)
+
+  @guess.save
 
   # set card variable (as the next unanswered card)
-  @card = Card.find(params[:card_id]).next
+  @card = current_round.deck.deal_next_card 
 
   # show feedback that has a link for "give me the next card"
   erb :feedback
+
 end
 
 post '/next' do 
