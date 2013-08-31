@@ -7,6 +7,7 @@ class Card < ActiveRecord::Base
   
   def next
     # for self (i.e. a card object), return the next card object.
+    # fix this.
     current_id = self.id
     next_id = self.id + 1
     Card.find(next_id)
