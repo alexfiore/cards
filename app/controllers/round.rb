@@ -1,34 +1,44 @@
-get '/deck/:deck_id' do
+post '/round' do
   selected_deck = Deck.find(params[:deck_id])
 
   @round = current_user.rounds.create(completion_status: false, deck_id: selected_deck.id)
-  session[:round_id] = @round.id
 
-  @card = @round.deck.cards.first
-
-  erb :play
+  redirect "/round/#{@round.id}"
 end
 
-post '/play' do
+get '/round/:round_id' do
+
+  @round = Round.find(params[:round_id])
+  @card = @round.deal_card
+
+  
+  erb :round_show
+
+end
+
+post '/round/:round_id/guess' do
   # set a variable that checks if guess is correct or not...
   user_guess = params[:user_input]
   current_card = Card.find(params[:card_id])
-  current_round = Round.find(session[:round_id])
+  current_round = Round.find(params[:round_id])
 
   @guess = Guess.new(card: current_card, 
                     round: current_round,
                     user_guess: user_guess)  
 
-  @guess.check_if_correct(user_guess)
-
   @guess.save
 
-  # set card variable (as the next unanswered card)
-  @card = current_round.deck.deal_next_card 
-
   # show feedback that has a link for "give me the next card"
-  erb :feedback
+  redirect "/round/#{params[:round_id]}/guess/#{@guess.id}"
+end
 
+get '/round/:round_id/guess/:guess_id' do
+
+  @round = Round.find(params[:round_id])
+  @guess = Guess.find(params[:guess_id])
+
+
+  erb :guess_show
 end
 
 post '/next' do 
