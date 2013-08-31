@@ -1,0 +1,8 @@
+<% if @guess.correct? %>
+  <p>Good job</p>
+<% else %>
+  <p>Sorry, try next time.</p>
+<% end %>
+
+<a href="/round/<%=@round.id%>">Next Card</a>
+

@@ -7,5 +7,9 @@ class Guess < ActiveRecord::Base
     self.right_wrong = guess == self.card.answer 
   end
 
+  def correct?
+    user_guess == self.card.answer
+  end
+
 end
 

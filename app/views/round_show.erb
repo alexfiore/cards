@@ -1,0 +1,17 @@
+<% if @round.complete? %>
+  <h1>Congratulations you've completed your round!</h1>
+<% else %>
+  
+
+  <h1>Here is your card</h1>
+
+  <p><%=@card.prompt%></p>
+
+  <p>What is your answer</p>
+  <form action="/round/<%=@round.id%>/guess" method="POST">
+    <input type="hidden" name="card_id" value="<%=@card.id%>">
+    <input type="text" name="user_input">
+    <input type="submit">
+  </form>
+<% end %>
+
