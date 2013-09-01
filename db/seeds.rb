@@ -1,4 +1,4 @@
-user = User.create(name: "Gaby", email: "gaby@gaby.com")
+user = User.create(name: "Gaby", email: "gaby@gaby.com", password:'gaby')
 
 deck = Deck.create(name: "Spanish-English")
 

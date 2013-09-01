@@ -1,6 +1,6 @@
 get '/' do 
   if current_user 
-    redirect "/user_profile/#{@user.id}"
+    redirect "/user_profile"
   else
     erb :index
   end
@@ -9,13 +9,17 @@ end
 post '/login' do 
   @user = User.find_by_email(params[:user][:email])
   
-  if @user.nil? 
-    redirect '/'
-  elsif User.authenticate(params[:user][:email], params[:user][:password])
+  if User.authenticate(params[:user][:email], params[:user][:password])
     session[:id] = @user.id
     redirect "/user_profile"
+  elsif @user.nil? 
+    @errors = []
+    @errors << "Unable to find user with that email..."
+    erb :index
   else
-    redirect '/'
+    @errors = []
+    @errors << "We could not authenticate you."
+    erb :index
   end
 end
 
@@ -26,15 +30,13 @@ before '/user_profile' do
 end
 
 get '/user_profile' do  #if current user is not log in then redirect them to '/'
-  @decks = Deck.all
+  @decks = Deck.where(user_id: nil) + Deck.where(user_id: current_user.id)
   erb :user_profile
 end
 
-get '/user_profile/:id/history' do
-  user = User.find(params[:id])
-
+get '/user_profile/history' do
   @completed_rounds = []
-  user.rounds.each do |round|
+  current_user.rounds.each do |round|
     if round.complete?
       @completed_rounds << round
     end
@@ -43,10 +45,9 @@ get '/user_profile/:id/history' do
   erb :history
 end
 
-get '/user_profile/:id/uncompleted_rounds' do
-  user = User.find(params[:id])
+get '/user_profile/uncompleted_rounds' do
   @uncompleted_rounds = []
-  user.rounds.each do |round|
+  current_user.rounds.each do |round|
     unless round.complete?
       @uncompleted_rounds << round
     end
@@ -71,5 +72,3 @@ get '/logout' do
   session.clear
   redirect '/'
 end
-
-

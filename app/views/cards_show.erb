@@ -1,0 +1,8 @@
+<% @all_cards.each do |c| %>
+  <%="#{c.prompt}: \n #{c.answer}"%>
+  <a href='/deck/<%= "#{c.deck_id}" %>/cards/<%= "#{c.id}" %>'>edit card</a>
+  <br>
+  <br>
+<% end %>
+
+<a href="/">Back to home</a>
