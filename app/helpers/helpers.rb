@@ -9,4 +9,9 @@ helpers do
     @round ||= Round.find
   end
 
+  def logged_in?
+    current_user
+  end
+  
+
 end

@@ -1,3 +1,8 @@
+before do 
+  erb :index unless logged_in? 
+end
+
+
 get '/' do 
   if current_user 
     redirect "/user_profile"
