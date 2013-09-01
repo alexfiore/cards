@@ -1,0 +1,18 @@
+<h1>Congratulations you've completed the round!</h1>
+
+<h4>Statistics for <%= current_user.name %> for <%= @round.deck.name %>:</h4>
+
+<table border="1">
+  <tr>
+    <th>Correct Guesses</th>
+    <th>Incorrect Guesses</th>
+    <th>Total Score</th>
+  </tr>
+  <tr>
+    <td><%= @correct %></td>
+    <td><%= @incorrect %></td>
+    <td><%= @round_percent %>%</td>
+  </tr>
+</table>
+
+

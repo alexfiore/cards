@@ -4,7 +4,6 @@ class Round < ActiveRecord::Base
   belongs_to :deck
 
   def deal_card
-    self.deck.cards.first
     # we want to deal a random card from this round's deck
     # the card should have nil user_guess...
 
@@ -21,6 +20,22 @@ class Round < ActiveRecord::Base
 
   def complete?
     deal_card.nil?
+  end
+
+  def statistics
+    correct = 0
+    incorrect = 0
+
+    self.guesses.each do |guess|
+      if guess.correct?
+        correct += 1
+      else
+        incorrect += 1
+      end
+    end
+    round_percent = (correct.to_f / (correct + incorrect))*100.0
+
+    return correct, incorrect, round_percent
   end
 
 end
