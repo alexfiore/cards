@@ -1,6 +1,7 @@
 class Deck < ActiveRecord::Base
   has_many :cards
-
+  belongs_to :user
+  
   validates :name, presence: true 
 
   # write method for how to deal a random card from a deck

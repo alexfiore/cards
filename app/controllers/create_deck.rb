@@ -3,7 +3,7 @@ get '/deck' do
 end
 
 post '/deck' do
-  deck = Deck.new(name: params[:deck_name])
+  deck = Deck.new(name: params[:deck_name], user_id: current_user.id)
 
   if deck.save
     redirect "/deck/#{deck.id}"
