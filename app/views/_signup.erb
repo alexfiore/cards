@@ -1,11 +1,23 @@
-<form action='/signup' method='POST'>
+<div class="signup-form">
+   <img src="img/quiz.jpg" alt="Smiley face" height="342" width="342">
+   
+<form action='/signup' method='POST' class="signup-form">
   Please enter your email and password to create an account:<br>
-  <label>Name: 
+  <div class="input-field">
+  <label>Name: </label>
     <input type='text' name='user[name]' placeholder='name'>
-  </label><br>
+  </div>
 
-  <%= erb :_email_pw_form %>
-  <input type='submit' value='Sign Up'> 
+  <label class="form-label">Email: 
+  <input type='text' name='user[email]' placeholder='email'>
+</label><br>
+
+<label class="form-label">Password: 
+  <input type='password' name='user[password]' placeholder='password'>
+</label>
+  <br><input type='submit' value='Sign Up'> 
   
 </form>
+
+</div>
 

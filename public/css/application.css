@@ -1,8 +1,9 @@
 .container {
   margin: 0px auto;
-  width: 600px;
+  width: 80%;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  min-height: 650px;
 }
 th {
   text-align: left;
@@ -11,8 +12,9 @@ th {
 .nav-bar{
   float: left;
   width: 100%;
-  background: #000;
+  background: #ccc;
   height: 80px;
+  margin-bottom: 30px;
 }
 
 .nav-bar ul{
@@ -35,8 +37,45 @@ th {
   text-decoration: none;
   color: #fff;
 }
-
-.content-wrap{
-
+.signup-form {
+  padding: 20px;
 }
-  
+.signup-form form {
+  display: block;
+  float: right;
+  margin-right: 200px;
+}
+.signup-form img {
+  float: left;
+  margin-left: 80px;
+}
+
+.signup-form label {
+  margin-top: 10px;
+}
+
+.login{
+  float: right;
+}
+
+.form-label {
+  padding: 15px;
+}
+
+.login-form {
+  line-height: 80px;
+}
+#login-submit {
+  margin-right: 10px;
+}
+.signup {
+  float: right;
+}
+
+.image-front {
+  float: left;
+}
+
+.input-field {
+  padding: 8px;
+}
