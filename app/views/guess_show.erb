@@ -1,7 +1,11 @@
 <% if @guess.correct? %>
-  <p>Good job</p>
+  <h3>Good job</h3>
 <% else %>
-  <p>Sorry, try next time.</p>
+  <h3>Incorrect!</h3>
+  <p>The correct answer is:</p>
+
+  <p> <%= @guess.card.answer %></p>
+
 <% end %>
 
 <a href="/round/<%=@round.id%>">Next Card</a>

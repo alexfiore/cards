@@ -11,10 +11,21 @@ get '/round/:round_id' do
   @round = Round.find(params[:round_id])
   @card = @round.deal_card
 
-  
+  if @round.complete?
+    redirect "/round/#{params[:round_id]}/statistics"
+  end
+ 
   erb :round_show
-
 end
+
+get '/round/:round_id/statistics' do
+  @round = Round.find(params[:round_id])
+
+  @correct, @incorrect, @round_percent = @round.statistics
+
+  erb :game_statistics
+end
+
 
 post '/round/:round_id/guess' do
   # set a variable that checks if guess is correct or not...
