@@ -30,7 +30,7 @@ before '/user_profile/:id' do
 end
 
 get '/user_profile/:id' do  #if current user is not log in then redirect them to '/'
-  @decks = Deck.where(user_id: nil) + Deck.where(user_id: user.id)
+  @decks = Deck.where(user_id: nil) + Deck.where(user_id: current_user.id)
   erb :user_profile
 end
 
