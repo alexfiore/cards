@@ -1,0 +1,24 @@
+<form action='/deck/<%=@deck.id%>/cards/<%=@card.id%>' method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <label>Edit card prompt...
+    <input type="text" name="card_prompt" value="<%=@card.prompt%>">
+  </label>
+  <br>
+  <label>Edit card answer...
+    <input type="text" name="card_answer" value="<%=@card.answer%>">
+  </label>
+  <input type="submit">
+</form>
+
+<br>
+
+<form action='/deck/<%=@deck.id%>/cards/<%=@card.id%>' method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  Delete this card. This cannot be undone!
+  <input type="submit" value="Delete">
+</form>
+
+<br>
+<a href='/deck/<%=@deck.id%>/cards'>Or click here to view cards</a>
+
+
