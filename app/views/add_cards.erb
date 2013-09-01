@@ -1,0 +1,12 @@
+<form action='/card' method="POST">
+  <label>Card Prompt
+    <input type="text" name="prompt"><br>
+  </label>
+  <label>Card Answer
+    <input type="text" name="answer"><br>
+  </label>
+    <input type="hidden" name="deck_id" value=<%=@deck_id%>>
+    <input type="submit" value="Create card">
+</form>
+
+<a href='/'>Nevermind, I'm done creating cards</a>

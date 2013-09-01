@@ -1,9 +1,9 @@
 post '/round' do
   selected_deck = Deck.find(params[:deck_id])
 
-  @round = current_user.rounds.create(completion_status: false, deck_id: selected_deck.id)
+  round = current_user.rounds.create(completion_status: false, deck_id: selected_deck.id)
 
-  redirect "/round/#{@round.id}"
+  redirect "/round/#{round.id}"
 end
 
 get '/round/:round_id' do

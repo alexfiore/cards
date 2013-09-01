@@ -1,6 +1,8 @@
 class Deck < ActiveRecord::Base
   has_many :cards
 
+  validates :name, presence: true 
+
   # write method for how to deal a random card from a deck
   # def deal_next_card
   #   #pseudocode: 

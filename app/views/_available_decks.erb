@@ -4,8 +4,9 @@
 <% @decks.each do |deck|%>
   <form action="/round" method="POST">
   <input type="hidden" value="<%=deck.id%>" name="deck_id"><p><%=deck.name%> </p>
-  <input type='submit' value='Click to start again'> 
+  <input type='submit' value='Click to play'> 
   </form>
+  <a href='/deck/<%=deck.id%>/edit'>Click to edit</a>
 <% end %>
 
 </div>  

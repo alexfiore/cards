@@ -1,5 +1,9 @@
 get '/' do 
-  erb :index
+  if current_user 
+    redirect "/user_profile/#{@user.id}"
+  else
+    erb :index
+  end
 end
 
 post '/login' do 
@@ -10,6 +14,8 @@ post '/login' do
   elsif User.authenticate(params[:user][:email], params[:user][:password])
     session[:id] = @user.id
     redirect "/user_profile/#{@user.id}"
+  else
+    redirect '/'
   end
 end
 
@@ -26,7 +32,8 @@ end
 
 
 post '/signup' do
-  @user = User.create(params[:user])
+  @user = User.new(params[:user])
+
   if @user.save 
     session[:id] = @user.id
     redirect "/user_profile/#{@user.id}"

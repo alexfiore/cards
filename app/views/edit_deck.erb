@@ -1,0 +1,18 @@
+<form action='/deck/<%=@deck.id%>' method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <label>Edit deck name...
+    <input type="text" name="deck_name" value="<%=@deck.name%>">
+    <input type="submit">
+  </label>
+</form>
+
+<br>
+
+<form action='/deck/<%=@deck.id%>' method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  Delete this deck. This cannot be undone!
+  <input type="submit" value="Delete">
+</form>
+
+<br>
+<a href='/deck/<%=@deck.id%>/cards'>Or click here to view cards</p>
