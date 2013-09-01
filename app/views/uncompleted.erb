@@ -1,0 +1,5 @@
+<h1>Welcome to your uncompleted page!</h1>
+
+<% @uncompleted_rounds.each do |round| %>
+  <a href='/round/<%= "#{round.id}" %>'><%= round.deck.name %></a><br>
+ <% end %>

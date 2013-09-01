@@ -1,0 +1,19 @@
+<h1>Welcome to your player statistics page!</h1>
+
+<table border="1">
+  <tr>
+  	<th>Title</th>
+    <th>Correct Guesses</th>
+    <th>Incorrect Guesses</th>
+    <th>Total Score</th>
+  </tr>
+
+  <% @completed_rounds.each do |round| %>
+    <tr>
+      <td><%= round.deck.name %></td>
+      <td><%= round.statistics[0] %></td>
+      <td><%= round.statistics[1] %></td>
+      <td><%= round.statistics[2] %>%</td>
+     </tr>
+  <% end %>
+  </table>
