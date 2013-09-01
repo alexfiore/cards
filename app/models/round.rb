@@ -37,7 +37,7 @@ class Round < ActiveRecord::Base
     end
     round_percent = (correct.to_f / (correct + incorrect))*100.0
 
-    return correct, incorrect, round_percent
+    return [correct,incorrect,round_percent]
   end
 
 end

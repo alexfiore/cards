@@ -21,7 +21,7 @@ end
 get '/round/:round_id/statistics' do
   @round = Round.find(params[:round_id])
 
-  @correct, @incorrect, @round_percent = @round.statistics
+  @round_statistics = @round.statistics
 
   erb :game_statistics
 end
