@@ -9,13 +9,17 @@ end
 post '/login' do 
   @user = User.find_by_email(params[:user][:email])
   
-  if @user.nil? 
-    redirect '/'
-  elsif User.authenticate(params[:user][:email], params[:user][:password])
+  if User.authenticate(params[:user][:email], params[:user][:password])
     session[:id] = @user.id
     redirect "/user_profile/#{@user.id}"
+  elsif @user.nil? 
+    @errors = []
+    @errors << "Unable to find user with that email..."
+    erb :index
   else
-    redirect '/'
+    @errors = []
+    @errors << "We could not authenticate you."
+    erb :index
   end
 end
 
@@ -29,7 +33,6 @@ get '/user_profile/:id' do  #if current user is not log in then redirect them to
   @decks = Deck.all
   erb :user_profile
 end
-
 
 post '/signup' do
   @user = User.new(params[:user])
@@ -47,5 +50,3 @@ get '/logout' do
   session.clear
   redirect '/'
 end
-
-
