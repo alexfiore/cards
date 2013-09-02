@@ -1,8 +1,12 @@
+<div class = "card-show">
+  <h1> Here are all your available cards:</h1><br>
+
 <% @all_cards.each do |c| %>
   <%="#{c.prompt}: \n #{c.answer}"%>
-  <a href='/deck/<%= "#{c.deck_id}" %>/cards/<%= "#{c.id}" %>'>edit card</a>
+  <a href='/deck/<%= "#{c.deck_id}" %>/cards/<%= "#{c.id}" %>'><br>edit card</a>
   <br>
   <br>
 <% end %>
-
-<a href="/">Back to home</a>
+<br>
+<center><a href="/">Back to Home</a></center>
+</div>

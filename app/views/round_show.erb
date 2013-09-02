@@ -2,16 +2,17 @@
   <%= erb :_game_statistics.erb %>
 <% else %>
   
+<div class= "main-game">
+  <h1>Here is your card:</h1>
 
-  <h1>Here is your card</h1>
+  <h4><%=@card.prompt%></h4>
 
-  <p><%=@card.prompt%></p>
-
-  <p>What is your answer</p>
+  <p>What is your answer?</p>
   <form action="/round/<%=@round.id%>/guess" method="POST">
     <input type="hidden" name="card_id" value="<%=@card.id%>">
     <input type="text" name="user_input">
     <input type="submit">
   </form>
+</div>
 <% end %>
 

@@ -1,12 +1,14 @@
+<div class = "create-card">
 <form action='/card' method="POST">
   <label>Card Prompt
     <input type="text" name="prompt"><br>
-  </label>
+  </label><br>
   <label>Card Answer
     <input type="text" name="answer"><br>
-  </label>
+  </label></br>
     <input type="hidden" name="deck_id" value=<%=@deck_id%>>
-    <input type="submit" value="Create card">
+    <center><input type="submit" value="Create card"></center>
 </form>
-
-<a href='/'>Nevermind, I'm done creating cards</a>
+<br>
+<center><a href='/'>Nevermind, I'm done creating cards</a></center>
+</div>

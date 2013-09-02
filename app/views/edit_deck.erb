@@ -1,6 +1,8 @@
+<div class ="edit-page">
+  <h1> Want to change your decks? </h1><br>
 <form action='/deck/<%=@deck.id%>' method="POST">
   <input type="hidden" name="_method" value="PUT">
-  <label>Edit deck name...
+  <label><h2>Edit deck name:</h2>
     <input type="text" name="deck_name" value="<%=@deck.name%>">
   </label>
   <input type="submit">
@@ -10,9 +12,13 @@
 
 <form action='/deck/<%=@deck.id%>' method="POST">
   <input type="hidden" name="_method" value="DELETE">
-  Delete this deck. This cannot be undone!
-  <input type="submit" value="Delete">
+  <h2>Delete deck:</h2>
+  This cannot be undone!
+  <div class ="warning">
+  <input  type="submit" value="Delete">
+</div>
 </form>
 
-<br>
+<br><br>
 <a href='/deck/<%=@deck.id%>/cards'>Or click here to view cards</a>
+</div>

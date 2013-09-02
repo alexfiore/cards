@@ -1,7 +1,8 @@
+
 .container {
   margin: 0px auto;
   width: 80%;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 0px 0px 0px;
   border: 1px dotted black;
   min-height: 650px;
 }
@@ -12,7 +13,7 @@ th {
 .nav-bar{
   float: left;
   width: 100%;
-  background: #ccc;
+  background: #fff;
   height: 80px;
   margin-bottom: 30px;
 }
@@ -35,19 +36,22 @@ th {
   float: right;
   padding: 8px 44px;
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
+
 .signup-form {
   padding: 20px;
+  background-color: #fff;
 }
 .signup-form form {
   display: block;
   float: right;
-  margin-right: 200px;
+  margin: 80px 440px 0 0px;
+
 }
 .signup-form img {
   float: left;
-  margin-left: 80px;
+  margin-left: -4px;
 }
 
 .signup-form label {
@@ -56,10 +60,7 @@ th {
 
 .login{
   float: right;
-}
-
-.form-label {
-  padding: 15px;
+  margin-right: 140px;
 }
 
 .login-form {
@@ -78,4 +79,186 @@ th {
 
 .input-field {
   padding: 8px;
+}
+
+
+.secondary-container{
+  background-image: url("/img/image-background.jpg");
+  width: 100%;
+  height: 650px;
+
+}
+.block1{
+ 
+  float: left;
+  margin: 0px 20px 0 0px;
+}
+
+.secondary-navbar{
+  float: left;
+  border-bottom: 2px solid #000;
+  width: 100%;
+  height: 60px;
+}
+
+.secondary-navbar ul{
+margin-right: 150px;
+}
+
+.secondary-navbar ul li{
+  float: right;
+  list-style: none;
+  font-size: 18px;
+  font-family: "Verdana", "Arial";
+  margin-right: 10px;
+
+}
+
+.secondary-navbar a{
+  display: block;
+  float: right;
+  margin-top: 10px;
+  margin-right: 1px;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: #000;
+}
+
+.welcome{
+  float: left;
+  margin: 0px 100px 0px 400px;
+  padding: 10px;
+  width: 350px;
+}
+
+.available-decks{
+  display: block;
+  float: left;
+  margin-left: 60px;
+  margin-right: 100px;
+  padding:30px;
+  padding-left: 100px;
+  padding-right: 180px;
+  border-right: 1px dotted black;
+}
+
+.create-decks{
+  display: block;
+  float: right;
+  margin: 30px 290px 0 0;
+
+
+}
+
+
+.finish-game{
+  display: block;
+  float: right;
+  padding: 20px;
+  margin:20px;
+  margin-left: 400px;
+
+  
+
+}
+
+.finish-game a{
+  color: #B22626;
+ 
+}
+
+
+.stat{
+  margin: 0;
+}
+
+.stat a{
+  color: #0000FF;
+  font-size: 20px;
+}
+
+.statistics-page{
+  display: block;
+  float: left;
+  width: 500px;
+  padding:20px;
+  margin-top: 30px;
+  margin-left: 320px;
+}
+
+.main-game{
+  display: block;
+  float: left;
+  margin-left: 400px;
+}
+
+.main-game h4{
+  text-align: center;
+  font-size: 25px;
+  font-weight: normal;
+}
+
+.guesses{
+  display: block;
+  float: center;
+  text-align: center;
+  margin-top: 120px;
+
+}
+
+.guesses p{
+  font-size: 25px;
+}
+
+.final-stat{
+  display: block;
+  float: left;
+  margin-left: 400px;
+}
+
+.final-stat table{
+  margin-left: 70px;
+}
+
+.edit-page{
+  display: block;
+  float: left;
+  margin-left: 340px;
+  text-align: center;
+}
+
+.edit-page a{
+  color: blue;
+}
+.warning{
+  color: red;
+}
+
+.card-show{
+  display: block;
+  float: left;
+  margin-left: 310px;
+  text-align: left;
+}
+.card-show a{
+  color: blue;
+}
+
+.create-card{
+  display: block;
+  float: left;
+  margin-top: 100px;
+  margin-left: 360px;
+  text-align: left;
+}
+.uncompleted-decks{
+  display: block;
+  float: left;
+  margin-left: 500px;
+  text-align: left;
+}
+.image-uncomplete{
+  display: block;
+  margin-top: 120px;
+  margin-left: 450px;
 }

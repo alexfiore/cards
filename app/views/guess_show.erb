@@ -1,12 +1,18 @@
+<div class ="guesses">
+
 <% if @guess.correct? %>
-  <h3>Good job</h3>
+  <h1>Correct!</h1>
+  <img src="/img/good_job.jpg" alt="Smiley face" height="300" width="300"><br>
+
 <% else %>
-  <h3>Incorrect!</h3>
+  <h1>Incorrect!</h1>
   <p>The correct answer is:</p>
 
   <p> <%= @guess.card.answer %></p>
+  <img src="/img/incorrect.jpg" alt="Smiley face" height="242" width="242"><br>
 
 <% end %>
 
 <a href="/round/<%=@round.id%>">Next Card</a>
 
+</div>
