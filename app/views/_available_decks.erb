@@ -1,15 +1,16 @@
-<div class= "content-wrap">
-<h1>Below are your available decks...</h1>
+
+<div class="available-decks">
+<h3>Your current decks:</h3>
 
 <% @decks.each do |deck|%>
   <form action="/round" method="POST">
   <input type="hidden" value="<%=deck.id%>" name="deck_id"><p><%=deck.name%> </p>
   <input type='submit' value='Click to play'> 
-  </form>
-  <a href='/deck/<%=deck.id%>/edit'>Click to edit</a>
+  </form><br>
+  <a href='/deck/<%=deck.id%>/edit'>Want to edit it?</a>
 <% end %>
-
-</div>  
+</div>
+ 
 
 
 

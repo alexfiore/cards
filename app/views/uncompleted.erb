@@ -1,5 +1,13 @@
-<h1>Welcome to your uncompleted page!</h1>
+<center><h1>Here are your uncompleted decks:</h1></center> <br>
+<div class ="uncompleted-decks">
+
 
 <% @uncompleted_rounds.each do |round| %>
   <a href='/round/<%= "#{round.id}" %>'><%= round.deck.name %></a><br>
  <% end %>
+
+
+</div>
+<div class ="image-uncomplete">
+ <img src="/img/pending.jpg" alt="Smiley face" height="242" width="242">
+</div>

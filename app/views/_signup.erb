@@ -1,23 +1,30 @@
-<div class="signup-form">
-   <img src="img/quiz.jpg" alt="Smiley face" height="342" width="342">
-   
-<form action='/signup' method='POST' class="signup-form">
-  Please enter your email and password to create an account:<br>
-  <div class="input-field">
-  <label>Name: </label>
-    <input type='text' name='user[name]' placeholder='name'>
-  </div>
+<div class="secondary-container">
 
-  <label class="form-label">Email: 
-  <input type='text' name='user[email]' placeholder='email'>
-</label><br>
+  <div class="signup-form">
 
-<label class="form-label">Password: 
-  <input type='password' name='user[password]' placeholder='password'>
-</label>
-  <br><input type='submit' value='Sign Up'> 
-  
-</form>
+
+   <form action='/signup' method='POST' class="signup-form">
+    <h3>Create your account:</h3>
+
+    <div class="input-field">
+      <label>Name: </label>
+      <input type='text' name='user[name]' placeholder='Name'/>
+    </div>
+
+    <div class="input-field">
+      <label>Email: </label>
+      <input type='text' name='user[email]' placeholder='email'/>
+    </div>
+
+    <div class="input-field">
+      <label>Password:</label>
+      <input type='password' name='user[password]' placeholder='password'/>
+    </div>
+
+    <input type='submit' value='Sign Up'/> 
+
+  </form>
 
 </div>
 
+</div>

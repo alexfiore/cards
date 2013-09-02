@@ -1,11 +1,15 @@
-<h1>Congratulations you've completed the round!</h1>
+<center><h1>Congratulations <%= current_user.name %>!</h1> 
+  <h2>you've completed the round!</h2></center>
 
-<h4>Statistics for <%= current_user.name %> for <%= @round.deck.name %>:</h4>
+
+<div class ="final-stat">
+
+<h4><%= current_user.name %>, here is the result for the <%= @round.deck.name %> deck:</h4>
 
 <table border="1">
   <tr>
-    <th>Correct Guesses</th>
-    <th>Incorrect Guesses</th>
+    <th> Correct </th>
+    <th> Incorrect</th>
     <th>Total Score</th>
   </tr>
   <tr>
@@ -15,4 +19,7 @@
   </tr>
 </table>
 
+  <center><img src="/img/finish.jpg" alt="Smiley face" height="300" width="300"></center><br>
 
+
+</div>

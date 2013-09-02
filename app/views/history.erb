@@ -1,19 +1,29 @@
-<h1>Welcome to your player statistics page!</h1>
 
+
+<center><h1>Here are your results!</h1></center>
+<div class = "statistics-page">
 <table border="1">
   <tr>
-  	<th>Title</th>
+  	<th>Deck Title</th>
     <th>Correct Guesses</th>
     <th>Incorrect Guesses</th>
     <th>Total Score</th>
   </tr>
 
   <% @completed_rounds.each do |round| %>
+   
     <tr>
       <td><%= round.deck.name %></td>
       <td><%= round.statistics[0] %></td>
       <td><%= round.statistics[1] %></td>
       <td><%= round.statistics[2] %>%</td>
      </tr>
+ 
   <% end %>
   </table>
+<br>
+  <img src="/img/stats.jpg" alt="Smiley face" ><br><br>
+ <center><a href='/user_profile'>Back to my games</a></center>
+
+
+</div>
