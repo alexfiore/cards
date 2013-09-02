@@ -145,7 +145,8 @@ margin-right: 150px;
 .create-decks{
   display: block;
   float: right;
-  margin: 30px 290px 0 0;
+  margin-top: 25px;
+  margin-right: 200px;
 
 
 }
